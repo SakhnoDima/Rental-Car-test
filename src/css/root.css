@@ -1,0 +1,14 @@
+:root {
+  --white-color: #fff;
+  --light-gray-color: #f7f7fb;
+
+  --primary-text-color: #121417;
+  --secondary-text-color: rgba(18, 20, 23, 0.5);
+  --blue-text-color: rgba(52, 112, 255, 1);
+  --btn-text-loadMore-hover:rgba(11, 68, 205, 1);
+  --stroke: rgba(255, 255, 255, 0.8)
+
+  --btn-bg-color: #3470ff;
+  --btn-bg-hover-color: #0b44cd;
+  
+}
