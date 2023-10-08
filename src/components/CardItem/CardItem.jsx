@@ -25,7 +25,8 @@ import Modal from "../Modal/Modal";
 const CardItem = ({ car }) => {
   const dispatch = useDispatch();
   const favoriteCars = useSelector(getFavoriteCars);
-  const { openModal, isOpen, closeModal } = useToggleModal();
+  const { openModal, isOpen, closeModal, handleKeyDown, handleBackdropClick } =
+    useToggleModal();
 
   const isInclude = (id) => {
     return favoriteCars?.map((item) => item.id).includes(id);
@@ -86,7 +87,14 @@ const CardItem = ({ car }) => {
         </DetailersList>
       </DetailsBox>
       <Button onClick={() => openModal()}>Learn more</Button>
-      {isOpen && <Modal carInfo={car} onClick={closeModal} />}
+      {isOpen && (
+        <Modal
+          handleBackdropClick={handleBackdropClick}
+          handleKeyDown={handleKeyDown}
+          carInfo={car}
+          onClick={closeModal}
+        />
+      )}
     </div>
   );
 };

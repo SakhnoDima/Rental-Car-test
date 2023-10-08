@@ -5,7 +5,7 @@ import { StyledList } from "./CardList.styled";
 const CardsList = ({ cars }) => {
   return (
     <StyledList>
-      {cars.map((car) => (
+      {cars?.map((car) => (
         <li key={car.id}>
           <CardItem car={car} />
         </li>
