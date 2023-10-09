@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import {
   AccessoriesList,
@@ -72,14 +73,17 @@ const Modal = ({ onClick, carInfo, handleKeyDown, handleBackdropClick }) => {
             {carInfo.rentalConditions.split("\n").map((item) => {
               if (item.includes("Minimum age")) {
                 return (
-                  <RentalConditionItem>
+                  <RentalConditionItem key={item}>
                     <span>
                       Minimum age:&nbsp;
                       <SpanBlueColor>{item.split(":")[1]}</SpanBlueColor>
                     </span>
                   </RentalConditionItem>
                 );
-              } else return <RentalConditionItem>{item}</RentalConditionItem>;
+              } else
+                return (
+                  <RentalConditionItem key={item}>{item}</RentalConditionItem>
+                );
             })}
             <RentalConditionItem>
               <span>
@@ -105,3 +109,21 @@ const Modal = ({ onClick, carInfo, handleKeyDown, handleBackdropClick }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  carInfo: PropTypes.shape({
+    img: PropTypes.string,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  handleKeyDown: PropTypes.func.isRequired,
+  handleBackdropClick: PropTypes.func.isRequired,
+};

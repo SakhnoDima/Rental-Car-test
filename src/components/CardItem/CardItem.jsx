@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Button from "../Button/Button";
 import {
   DetailsBox,
@@ -18,13 +19,14 @@ import {
   addFavorites,
   removeFromFavorites,
 } from "../../redux/favorites/operations";
-import { getFavoriteCars } from "../../redux/selectors";
+import { selectors } from "../../redux/selectors";
 import useToggleModal from "../../hook/useToggleModal";
 import Modal from "../Modal/Modal";
 
 const CardItem = ({ car }) => {
   const dispatch = useDispatch();
-  const favoriteCars = useSelector(getFavoriteCars);
+  const { favoritesCarsList } = selectors();
+  const favoriteCars = useSelector(favoritesCarsList);
   const { openModal, isOpen, closeModal, handleKeyDown, handleBackdropClick } =
     useToggleModal();
 
@@ -100,3 +102,18 @@ const CardItem = ({ car }) => {
 };
 
 export default CardItem;
+
+CardItem.propTypes = {
+  car: PropTypes.shape({
+    img: PropTypes.string,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};

@@ -2,13 +2,14 @@ import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Container from "../Container/Container";
+import Loader from "../Loader/Loader";
 
 const Layout = () => {
   return (
     <div>
       <NavBar />
       <main>
-        <Suspense fallback={<p>Loading ... </p>}>
+        <Suspense fallback={<Loader />}>
           <Container>
             <Outlet />
           </Container>

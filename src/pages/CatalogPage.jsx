@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getCars } from "../redux/selectors";
+import { selectors } from "../redux/selectors";
 import { toast } from "react-toastify";
 
 import CardsList from "../components/CardsList/CardsList";
 import Button from "../components/Button/Button";
 import { getAllCars } from "../redux/cars/operations";
+import Loader from "../components/Loader/Loader";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const cars = useSelector(getCars);
+  const { carsList, isLoadingCarsList } = selectors();
+  const loading = useSelector(isLoadingCarsList);
+  const cars = useSelector(carsList);
   const length = cars.length;
-
   useEffect(() => {
     dispatch(getAllCars(page));
   }, [dispatch, page]);
@@ -36,10 +38,16 @@ const CatalogPage = () => {
   return (
     <>
       <CardsList cars={cars} />
-      {isLastPage(length) && (
-        <Button onClick={handleclick} loadMore={true}>
-          Load more
-        </Button>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {isLastPage(length) && (
+            <Button onClick={handleclick} loadMore={true}>
+              Load more
+            </Button>
+          )}
+        </>
       )}
     </>
   );
