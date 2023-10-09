@@ -1,16 +1,17 @@
 {
   "files": {
     "main.css": "/rental-car-test/static/css/main.0112c385.css",
-    "main.js": "/rental-car-test/static/js/main.897a68e3.js",
+    "main.js": "/rental-car-test/static/js/main.9f516fed.js",
+    "static/media/car-inspection-icon.svg": "/rental-car-test/static/media/car-inspection-icon.26bdab37a50f41b5cc31b8e58a8fab51.svg",
     "index.html": "/rental-car-test/index.html",
     "static/media/normal.svg": "/rental-car-test/static/media/normal.4e0697eba7c118cdcc05672a4459b43d.svg",
     "static/media/x.svg": "/rental-car-test/static/media/x.2506ba1b1aa0a513ae868e9ebbba72fc.svg",
     "static/media/Vector 6.svg": "/rental-car-test/static/media/Vector 6.74dd3f265d5929200a43f7f25246c255.svg",
     "main.0112c385.css.map": "/rental-car-test/static/css/main.0112c385.css.map",
-    "main.897a68e3.js.map": "/rental-car-test/static/js/main.897a68e3.js.map"
+    "main.9f516fed.js.map": "/rental-car-test/static/js/main.9f516fed.js.map"
   },
   "entrypoints": [
     "static/css/main.0112c385.css",
-    "static/js/main.897a68e3.js"
+    "static/js/main.9f516fed.js"
   ]
 }
