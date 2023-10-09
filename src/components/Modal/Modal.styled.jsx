@@ -20,7 +20,6 @@ export const ModalBackdrop = styled.div`
 
 export const ModalBody = styled.div`
   width: 541px;
-  /* height: 752px; */
   padding: 40px;
   position: relative;
   border-radius: 24px;

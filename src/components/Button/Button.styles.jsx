@@ -13,7 +13,7 @@ export const ButtonStyled = styled.button`
     $loadMore ? "var(--white-color)" : "#3470ff"};
   color: ${({ $loadMore }) =>
     $loadMore ? "var(--blue-text-color)" : "var(--white-color)"};
-  margin: ${({ $loadMore }) => $loadMore && "100px auto 20px"};
+  margin: ${({ $loadMore }) => $loadMore && "0 auto 20px"};
   &:hover {
     background: ${({ $loadMore }) =>
       $loadMore ? "transparent" : "var(--btn-bg-hover-color)"};

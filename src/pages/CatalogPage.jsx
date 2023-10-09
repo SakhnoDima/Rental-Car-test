@@ -15,7 +15,9 @@ const CatalogPage = () => {
   const { carsList, isLoadingCarsList } = selectors();
   const loading = useSelector(isLoadingCarsList);
   const cars = useSelector(carsList);
+
   const length = cars.length;
+
   useEffect(() => {
     dispatch(getAllCars(page));
   }, [dispatch, page]);

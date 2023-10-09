@@ -1,27 +1,25 @@
 import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
 import Container from "../Container/Container";
 import Loader from "../Loader/Loader";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { Main, Wrapper } from "./Leyout.styled";
 
 const Layout = () => {
   return (
-    <div>
-      <NavBar />
-      <main>
+    <Wrapper>
+      <Header />
+
+      <Main>
         <Suspense fallback={<Loader />}>
           <Container>
             <Outlet />
           </Container>
         </Suspense>
-      </main>
-      {/* <Footer>
-        <Link href="https://github.com/SakhnoDima">
-          <AiFillGithub />
-        </Link>
-        <Text>&copy; {new Date().getFullYear()} Movie Search </Text>
-      </Footer> */}
-    </div>
+      </Main>
+      <Footer />
+    </Wrapper>
   );
 };
 

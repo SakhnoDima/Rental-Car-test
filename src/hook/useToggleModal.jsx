@@ -9,6 +9,10 @@ export default function useToggleModal() {
 
   const openModal = () => setIsOpen(true);
 
+  const toggleModal = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -35,5 +39,6 @@ export default function useToggleModal() {
     closeModal,
     handleKeyDown,
     handleBackdropClick,
+    toggleModal,
   };
 }

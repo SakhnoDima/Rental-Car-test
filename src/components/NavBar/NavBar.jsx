@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleLink } from "./NavBar.styled";
+import { NavBox, StyleLink } from "./NavBar.styled";
 
 const NavBar = () => {
   return (
-    <div>
+    <NavBox>
       <StyleLink to="/">Home</StyleLink>
       <StyleLink to="/catalog">Catalog</StyleLink>
       <StyleLink to="/favorites">Favorites</StyleLink>
-    </div>
+    </NavBox>
   );
 };
 
