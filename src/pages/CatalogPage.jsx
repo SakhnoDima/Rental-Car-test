@@ -8,21 +8,29 @@ import CardsList from "../components/CardsList/CardsList";
 import Button from "../components/Button/Button";
 import { getAllCars } from "../redux/cars/operations";
 import Loader from "../components/Loader/Loader";
+import Filter from "../components/Filter/Filter";
+import { getFilterContacts } from "../utils/helpers";
+import { initFilter } from "../const/initFilter";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+
   const [page, setPage] = useState(1);
+  const [filters, setFilters] = useState(initFilter);
+
   const { carsList, isLoadingCarsList } = selectors();
   const loading = useSelector(isLoadingCarsList);
+
   const cars = useSelector(carsList);
 
-  const length = cars.length;
+  const cardsListForRender = getFilterContacts(cars, filters);
 
   useEffect(() => {
     dispatch(getAllCars(page));
   }, [dispatch, page]);
 
-  const isLastPage = (length) => {
+  const isLastPage = () => {
+    const length = cars.length;
     if (length % 8 !== 0) {
       toast.info("It was last page", {
         theme: "colored",
@@ -39,12 +47,13 @@ const CatalogPage = () => {
 
   return (
     <>
-      <CardsList cars={cars} />
+      <Filter setFilters={setFilters} />
+      <CardsList cars={cardsListForRender} />
       {loading ? (
         <Loader />
       ) : (
         <>
-          {isLastPage(length) && (
+          {isLastPage() && (
             <Button onClick={handleclick} loadMore={true}>
               Load more
             </Button>

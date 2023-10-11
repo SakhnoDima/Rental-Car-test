@@ -60,9 +60,9 @@ const CardItem = ({ car }) => {
           <p>{car.rentalPrice}</p>
         </ModelList>
         <DetailersList>
-          <p>{car.address.split(",")[1]}</p>
+          <p>{car.address?.split(",")[1]}</p>
           <ReactLogo />
-          <p>{car.address.split(",")[2]}</p>
+          <p>{car.address?.split(",")[2]}</p>
           <ReactLogo />
           <p>{car.rentalCompany}</p>
         </DetailersList>
@@ -72,7 +72,7 @@ const CardItem = ({ car }) => {
           <Dropdown>
             <p>Accessories</p>
             <DropdownChild>
-              {car.accessories.map((item) => (
+              {car.accessories?.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </DropdownChild>
@@ -81,7 +81,7 @@ const CardItem = ({ car }) => {
           <Dropdown>
             <p>Functionalities</p>
             <DropdownChild>
-              {car.functionalities.map((item) => (
+              {car.functionalities?.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </DropdownChild>

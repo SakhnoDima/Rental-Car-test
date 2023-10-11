@@ -12,7 +12,7 @@ export const breakpoints = {
 
 export const ContainerStyled = styled.div`
   max-width: ${size.mobile};
-  margin: 50px auto 0;
+  margin: 0 auto;
 
   @media screen and (${breakpoints.tablet}) {
     max-width: 1024px;
